@@ -1,0 +1,9 @@
+if __name__ == "__main__":
+    # Example training
+    trainer = GPT2Trainer(output_dir='./custom-gpt2')
+    train_dataset = trainer.prepare_dataset('path/to/training/data.txt')
+    trainer.train(train_dataset)
+
+    # Example generation
+    generator = TextGenerator(model_path='./custom-gpt2')
+    print(generator.generate(prompt="Once upon a time", max_length=200))

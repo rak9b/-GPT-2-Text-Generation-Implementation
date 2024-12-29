@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/ML Task Demo</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="container">
+        <h1>Task Demo</h1>
+        <p>Interact with the selected AI/ML task using the interface below.</p>
+    </header>
+
+    <main class="container">
+        <section id="task-info">
+            <h2>Task: {{ task_name }}</h2>
+            <p>{{ task_description }}</p>
+        </section>
+
+        <section id="task-interface">
+            <form id="task-form" method="POST" action="/run_task">
+                <label for="input-data">Input:</label>
+                <textarea id="input-data" name="input_data" rows="5" placeholder="Enter input for the task..."></textarea>
+                
+                <button type="submit" class="button">Run Task</button>
+            </form>
+        </section>
+
+        <section id="task-results">
+            <h2>Results</h2>
+            {% if results %}
+                <div class="result-container">
+                    <pre>{{ results }}</pre>
+                </div>
+            {% else %}
+                <p>No results available. Run the task to see the output.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2024 AI/ML Generation Tasks. All rights reserved.</p>
+    </footer>
+</body>
+</html>
